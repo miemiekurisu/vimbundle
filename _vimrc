@@ -1,25 +1,33 @@
+set runtimepath+=~/.vim/bundle
 if has("unix")
 runtime! debian.vim
 endif
+
 
 "if win32 use vimtweak
 if has("gui_win32") || has("gui_win64")
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 let g:tweakAlpha = 185
-let g:MyVimLib = $HOME."/.vim/bundle/vimtweak/vimtweak64.dll"
-function! SetAlpha(alpha)
-        let g:tweakAlpha=g:tweakAlpha+a:alpha
-        if g:tweakAlpha < 150
-                let g:tweakAlpha=150
-        endif
-        if g:tweakAlpha > 255
-                let g:tweakAlpha=255
-        endif
-        call libcallnr(g:MyVimLib, "SetAlpha", g:tweakAlpha)
-endfunction
+"if has("gui_win32")
+"   let g:MyVimLib = "~/.vim/bundle/vimtweak/vimtweak32.dll"
+"endif
+"if has("gui_win64")
+"    let g:MyVimLib = "~/.vim/bundle/vimtweak/vimtweak64.dll"
+"endif
+"echo g:MyVimLib
+"function! SetAlpha(alpha)
+"        let g:tweakAlpha=g:tweakAlpha+a:alpha
+"        if g:tweakAlpha < 150
+"                let g:tweakAlpha=150
+"        endif
+"        if g:tweakAlpha > 255
+"                let g:tweakAlpha=255
+"        endif
+"        call libcallnr(g:MyVimLib, "SetAlpha", g:tweakAlpha)
+"endfunction
 
-behave mswin
+"behave mswin
 unmap <C-V>
 set guifont=Monaco:h12
 set encoding=utf-8
@@ -29,8 +37,8 @@ set termencoding=utf-8
 language messages zh_CN.utf-8
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-nmap <a-+> <esc>:call SetAlpha(5)<cr>
-nmap <a-_> <esc>:call SetAlpha(-5)<cr>
+"nmap <a-+> <esc>:call SetAlpha(5)<cr>
+"nmap <a-_> <esc>:call SetAlpha(-5)<cr>
 colorscheme elflordc
 endif
 if has("unix")
@@ -51,7 +59,9 @@ Plugin 'mattn/vimtweak'
 Plugin 'mattn/transparency-windows-vim'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'severin-lemaignan/vim-minimap'
+"Plugin 'severin-lemaignan/vim-minimap'
+"Plugin 'mattn/vimtweak'
+"Plugin 'mattn/transparency-windows-vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -90,5 +100,5 @@ endif
 nnoremap <silent> <F11> :MinimapToggle <CR>
 "must behind the nerdtree
 if has("gui_win32") || has("gui_win64")
-call SetAlpha(0)
+"call SetAlpha(0)
 endif
