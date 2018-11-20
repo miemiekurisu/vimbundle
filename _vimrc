@@ -1,4 +1,5 @@
 set runtimepath+=~/.vim/bundle
+set runtimepath+=~/.vim
 if has("unix")
 runtime! debian.vim
 endif
@@ -8,24 +9,6 @@ endif
 if has("gui_win32") || has("gui_win64")
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
-let g:tweakAlpha = 185
-"if has("gui_win32")
-"   let g:MyVimLib = "~/.vim/bundle/vimtweak/vimtweak32.dll"
-"endif
-"if has("gui_win64")
-"    let g:MyVimLib = "~/.vim/bundle/vimtweak/vimtweak64.dll"
-"endif
-"echo g:MyVimLib
-"function! SetAlpha(alpha)
-"        let g:tweakAlpha=g:tweakAlpha+a:alpha
-"        if g:tweakAlpha < 150
-"                let g:tweakAlpha=150
-"        endif
-"        if g:tweakAlpha > 255
-"                let g:tweakAlpha=255
-"        endif
-"        call libcallnr(g:MyVimLib, "SetAlpha", g:tweakAlpha)
-"endfunction
 
 "behave mswin
 unmap <C-V>
@@ -37,10 +20,9 @@ set termencoding=utf-8
 language messages zh_CN.utf-8
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-"nmap <a-+> <esc>:call SetAlpha(5)<cr>
-"nmap <a-_> <esc>:call SetAlpha(-5)<cr>
 colorscheme elflordc
 endif
+
 if has("unix")
 set ff=unix
 endif
@@ -55,13 +37,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/Conque-Shell'
-Plugin 'mattn/vimtweak'
 Plugin 'mattn/transparency-windows-vim'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'severin-lemaignan/vim-minimap'
-"Plugin 'mattn/vimtweak'
-"Plugin 'mattn/transparency-windows-vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -91,14 +70,14 @@ let NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let NERDTreeWinSize=38
 nnoremap <silent> <F12> :NERDTreeTabsToggle<CR>
+nnoremap <silent> <C-F12> :NERDTreeFromBookmark workplace<CR>
 if has("gui")
 "set window
 set lines=35 columns=160
 endif
 
 "minimap"
-nnoremap <silent> <F11> :MinimapToggle <CR>
+"nnoremap <silent> <F11> :MinimapToggle <CR>
 "must behind the nerdtree
 if has("gui_win32") || has("gui_win64")
-"call SetAlpha(0)
 endif
