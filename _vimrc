@@ -63,6 +63,7 @@ set incsearch
 set ignorecase
 set wildmenu
 set laststatus=2
+set autochdir
 let g:Powerline_colorscheme='solarized256'
 "NERDTree
 let NERDTreeWinPos="left"
@@ -71,6 +72,8 @@ let g:nerdtree_tabs_focus_on_files=1
 let NERDTreeWinSize=38
 nnoremap <silent> <F12> :NERDTreeTabsToggle<CR>
 nnoremap <silent> <C-F12> :NERDTreeFromBookmark workplace<CR>
+set splitbelow
+nnoremap <silent> <F11> :terminal ++rows=5<CR>
 if has("gui")
 "set window
 set lines=35 columns=160
