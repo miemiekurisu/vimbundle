@@ -1,4 +1,4 @@
-"set runtimepath+=~/vimfiles/bundle
+        "set runtimepath+=~/vimfiles/bundle
 if has("unix")
 runtime! debian.vim
 endif
@@ -116,5 +116,3 @@ if has("gui_win32") || has("gui_win64")
 "call libcallnr(g:MyVimLib, "SetAlpha", g:DefaultTweakAlpha)
 endif
 
-
-nnoremap <silent> <C-w> <->:exe "resize " . (winheight(0) * 3/4)<CR>
