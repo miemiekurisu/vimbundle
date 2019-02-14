@@ -1,11 +1,11 @@
-        "set runtimepath+=~/vimfiles/bundle
+"set runtimepath+=~/vimfiles/bundle
 if has("unix")
 runtime! debian.vim
 endif
 
 
 "if win32 use vimtweak
-if has("gui_win32") || has("gui_win64")
+if has('gui') && has("gui_win32") || has("gui_win64")
 "set runtimepath+=%USERPROFILE%/vimfiles/bundle
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
@@ -30,12 +30,11 @@ endfunction
 nnoremap <silent> <C-F10> :call SetAlpha(5)<CR>
 nnoremap  <silent> <F10> :call SetAlpha(-5)<CR>
 autocmd VimEnter * call libcallnr(g:MyVimLib, "SetAlpha", g:tweakAlpha)
+unmap <C-V>
 endif
 
-"behave mswin
-unmap <C-V>
-"set guifont=Monaco:h12
-set guifont=Lucida_Console:h14
+set guifont=Monaco:h12
+"set guifont=Lucida_Console:h14
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,chinese,cp936,latin1
@@ -60,7 +59,7 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/Conque-Shell'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'severin-lemaignan/vim-minimap'
 if has("gui_win32") || has("gui_win64")
 Plugin 'mattn/vimtweak'
@@ -95,6 +94,7 @@ let NERDTreeWinPos="left"
 let NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let NERDTreeWinSize=38
+let NERDTreeIgnore = ['\.DAT$', '\.LOG1$', '\.LOG1']
 nnoremap <silent> <F12> :NERDTreeTabsToggle<CR>
 nnoremap <silent> <C-F12> :NERDTreeFromBookmark workplace<CR>
 " Start NERDTree
@@ -103,7 +103,7 @@ autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 
 set splitbelow
-nnoremap <silent> <F11> :terminal ++rows=5<CR>
+nnoremap <silent> <F11> :terminal ++rows=8<CR>
 if has("gui")
 "set window
 set lines=35 columns=160
@@ -113,6 +113,5 @@ endif
 "nnoremap <silent> <F11> :MinimapToggle <CR>
 "must behind the nerdtree
 if has("gui_win32") || has("gui_win64")
-"call libcallnr(g:MyVimLib, "SetAlpha", g:DefaultTweakAlpha)
 endif
 
