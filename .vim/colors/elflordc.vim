@@ -10,14 +10,14 @@ if exists("syntax_on")
   syntax reset
 endif
 let g:colors_name = "elflord"
-hi Normal		guifg=cyan			guibg=black
+hi Normal		guifg=#66ff00 guibg=black
 hi Comment	term=bold		ctermfg=DarkCyan		guifg=#80a0ff
 hi Constant	term=underline	ctermfg=Magenta		guifg=Magenta
 hi Special	term=bold		ctermfg=DarkMagenta	guifg=Red
 hi Identifier term=underline	cterm=bold			ctermfg=Cyan guifg=#40ffff
 hi Statement term=bold		ctermfg=Yellow gui=bold	guifg=#aa4444
-hi PreProc	term=underline	ctermfg=LightBlue	guifg=#ff80ff
-hi Type	term=underline		ctermfg=LightGreen	guifg=#60ff60 gui=bold
+hi PreProc	term=underline	ctermfg=LightGreen guifg=#ff80ff
+hi Type	term=underline		ctermfg=LightBlue guifg=#60ff60 gui=bold
 hi Function	term=bold		ctermfg=White guifg=White
 hi Repeat	term=underline	ctermfg=White		guifg=white
 hi Operator				ctermfg=Red			guifg=Red
