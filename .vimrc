@@ -3,20 +3,23 @@ if has("unix")
 runtime! debian.vim
 endif
 
+if has("win32")||has("win64")
 
-"if win32 use vimtweak
+endif
+
+let g:jedi#force_py_version=3
+let g:pymode_python='python'
+
+"if win use vimtweak
 if has('gui') && has("gui_win32") || has("gui_win64")
 "set runtimepath+=%USERPROFILE%/vimfiles/bundle
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 let g:tweakAlpha = 200
-"if has("gui_win32")
-"   let g:MyVimLib = %USERPROFILE%+"/.vim/bundle/vimtweak/vimtweak32.dll"
-"endif
-"if has("gui_win64")
-"    let g:MyVimLib = %USERPROFILE%+"/.vim/bundle/vimtweak/vimtweak64.dll"
-"endif
-let g:MyVimLib=expand('~/.vim/vimtweak.dll')
+"modify it when needed
+"let g:MyVimLib = expand("~/.vim/bundle/vimtweak/vimtweak32.dll")
+let g:MyVimLib = expand("~/.vim/bundle/vimtweak/vimtweak64.dll")
+"let g:MyVimLib=expand('~/.vim/vimtweak.dll')
 function! SetAlpha(alpha)
         let g:tweakAlpha=g:tweakAlpha+a:alpha
         if g:tweakAlpha < 150
@@ -59,18 +62,16 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/Conque-Shell'
 Plugin 'jistr/vim-nerdtree-tabs'
-"Plugin 'Xuyuanp/nerdtree-git-plugin'
-"Plugin 'severin-lemaignan/vim-minimap'
 if has("gui_win32") || has("gui_win64")
 Plugin 'mattn/vimtweak'
-"Plugin 'mattn/transparency-windows-vim'
+Plugin 'davidhalter/jedi-vim'
 endif
 call vundle#end()
 
 filetype plugin indent on
 syntax on
 set foldlevel=99
-au FileType python set omnifunc=pythoncomplete#Complete
+"au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 let g:pydiction_location = expand('~/.vim/bundle/pydiction/complete-dict')
 set tabstop=8
@@ -109,9 +110,7 @@ if has("gui")
 set lines=35 columns=160
 endif
 
-"minimap"
-"nnoremap <silent> <F11> :MinimapToggle <CR>
-"must behind the nerdtree
-if has("gui_win32") || has("gui_win64")
-endif
+set fileformat=unix
+set encoding=utf8
 
+set omnifunc=jedi#completions
