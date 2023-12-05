@@ -17,8 +17,8 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 let g:tweakAlpha = 200
 "modify it when needed
-"let g:MyVimLib = expand("~/.vim/bundle/vimtweak/vimtweak32.dll")
-let g:MyVimLib = expand("~/.vim/bundle/vimtweak/vimtweak64.dll")
+let g:MyVimLib = expand("~/.vim/vimtweak.dll")
+"let g:MyVimLib = expand("~/.vim/bundle/vimtweak/vimtweak64.dll")
 "let g:MyVimLib=expand('~/.vim/vimtweak.dll')
 function! SetAlpha(alpha)
         let g:tweakAlpha=g:tweakAlpha+a:alpha
@@ -46,7 +46,7 @@ language messages zh_CN.utf-8
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
-colorscheme elflord
+colorscheme elflordc
 if has("unix")
 set ff=unix
 endif

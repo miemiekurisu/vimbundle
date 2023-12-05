@@ -3,22 +3,23 @@
 " Vim color file
 " Maintainer:	Ron Aaron <ron@ronware.org>
 " Last Change:	2003 May 02
+" Changed by:    Chris
 
 set background=dark
 hi clear
 if exists("syntax_on")
   syntax reset
 endif
-let g:colors_name = "elflord"
+let g:colors_name = "elflordc"
 hi Normal		guifg=#66ff00 guibg=black
 hi Comment	term=bold		ctermfg=DarkCyan		guifg=#80a0ff
-hi Constant	term=underline	ctermfg=Magenta		guifg=Magenta
+hi Constant	term=underline	ctermfg=LightBlue guifg=LightBlue
 hi Special	term=bold		ctermfg=DarkMagenta	guifg=Red
 hi Identifier term=underline	cterm=bold			ctermfg=Cyan guifg=#40ffff
 hi Statement term=bold		ctermfg=Yellow gui=bold	guifg=#aa4444
 hi PreProc	term=underline	ctermfg=LightGreen guifg=#ff80ff
-hi Type	term=underline		ctermfg=LightBlue guifg=#60ff60 gui=bold
-hi Function	term=bold		ctermfg=White guifg=White
+hi Type	term=underline		ctermfg=LightGreen guifg=#ff80ff gui=bold
+hi Function	term=bold		ctermfg=White guifg=#66ff00
 hi Repeat	term=underline	ctermfg=White		guifg=white
 hi Operator				ctermfg=Red			guifg=Red
 hi Ignore				ctermfg=black		guifg=bg
